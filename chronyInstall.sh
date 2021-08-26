@@ -2,6 +2,8 @@
 
 rm "$0"
 
+apt-get update 
+apt-get upgrades -y
 apt-get install chrony -y
 
 cat > /etc/chrony/chrony.conf << EOF
@@ -43,8 +45,7 @@ leapsectz right/UTC
 local stratum 10
 
 EOF
-
-systemctl restart chronyd.service
+systemctl restart chrony
 
 # Allow chrony ntp
 ufw allow 123/udp
