@@ -5,7 +5,7 @@ rm "$0"
 apt-get update 
 apt-get upgrades -y
 
-apt-get install unattended-upgrades
+apt-get install unattended-upgrades -y
 cat > /etc/apt/apt.conf.d/20auto-upgrades <<EOF
 APT::Periodic::Update-Package-Lists "7";
 APT::Periodic::Unattended-Upgrade "7";
