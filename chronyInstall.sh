@@ -5,15 +5,6 @@ rm "$0"
 apt-get update 
 apt-get upgrades -y
 
-apt-get install unattended-upgrades -y
-cat > /etc/apt/apt.conf.d/20auto-upgrades <<EOF
-APT::Periodic::Update-Package-Lists "7";
-APT::Periodic::Unattended-Upgrade "7";
-APT::Periodic::Download-Upgradeable-Package "7";
-APT::Periodic::AutocleanInterval "7";
-EOF
-systemctl restart unattended-upgrades
-
 apt-get install chrony -y
 cat > /etc/chrony/chrony.conf << EOF
 pool time.google.com       iburst minpoll 2 maxpoll 2 maxsources 3 maxdelay 0.3
